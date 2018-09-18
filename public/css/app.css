@@ -10477,7 +10477,17 @@ a.text-dark:focus {
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
-main {
+header {
   margin-top: 5em;
+}
+
+footer {
+  background-color: #f1f5f9;
+  -webkit-box-shadow: 0 50vh 0 50vh #f1f5f9;
+          box-shadow: 0 50vh 0 50vh #f1f5f9;
+}
+
+.base-col-alt {
+  background-color: #f1f5f9;
 }
 

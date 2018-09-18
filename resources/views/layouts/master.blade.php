@@ -7,6 +7,7 @@
 
 @extends('snippets.nav')
 
+
 <main role="main" class="container">
 
     @yield('main')

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 use function Sodium\crypto_box_publickey_from_secretkey;
 
@@ -37,7 +38,26 @@ class RegisterController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // validate request
+        $this->validate($request, [
+           'name' => 'required',
+           'email' => 'required|email',
+           'password' => 'required|confirmed',
+        ]);
+
+        // create a new user
+        $user = User::create([
+            'name' => request('name'),
+            'email' => request('email'),
+            'password' => bcrypt(request('password'))
+        ]);
+
+        // login the user
+        auth()->login($user);
+
+        // return to home
+        return view('welcome');
+
     }
 
     /**
