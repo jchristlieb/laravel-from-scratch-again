@@ -12,9 +12,7 @@
 
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', 'PostController@index')->name('home');
 
 
 // Auth routes
@@ -25,5 +23,6 @@ Route::get('login', 'SessionController@create')->name('session.create');
 Route::post('login', 'SessionController@store')->name('session.store');
 
 // Posts
-Route::get('/post', 'PostController@create')->name('post.create');
-Route::post('/post', 'PostController@store')->name('post.store');
+Route::get('/posts', 'PostController@create')->name('posts.create');
+Route::post('/posts', 'PostController@store')->name('posts.store');
+Route::get('/posts/{post}', 'PostController@show')->name('posts.single');

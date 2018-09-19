@@ -10495,3 +10495,11 @@ ul {
   margin-bottom: 0;
 }
 
+.card p {
+  margin: 0;
+}
+
+.card a:hover {
+  text-decoration: none;
+}
+

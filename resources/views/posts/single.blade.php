@@ -2,12 +2,12 @@
 
 @component('intro')
     @slot('title')
-        Read and write
+        {{ $post->title }}
         @endslot
-    Communicate your thoughts and comment on others.
     @endcomponent
 
 @section('main')
 
+    <p>{{ $post->body }}</p>
 
     @endsection

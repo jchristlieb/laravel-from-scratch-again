@@ -30,3 +30,12 @@ footer {
 ul {
     margin-bottom: 0;
 }
+
+.card {
+    p {
+        margin: 0;
+    }
+    a:hover {
+       text-decoration: none;
+    }
+}

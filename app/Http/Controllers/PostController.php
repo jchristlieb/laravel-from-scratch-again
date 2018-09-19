@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Post;
-use Dotenv\Validator;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -15,7 +14,11 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        // retrieve all posts
+        $posts = Post::all();
+
+        // redirect home
+        return view('posts.index', compact('posts'));
     }
 
     /**
@@ -48,8 +51,9 @@ class PostController extends Controller
            'body' => request('body'),
         ]);
 
+
         // redirect
-        return redirect()->route('home');
+        return view('home');
     }
 
     /**
@@ -60,7 +64,8 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        // redirect
+        return view('posts.single', compact('post'));
     }
 
     /**
