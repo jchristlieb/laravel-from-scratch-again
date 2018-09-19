@@ -24,7 +24,7 @@
                         </div>
                         <div class="card-footer">
                             <p class="text-muted small">Written {{ $post->created_at->diffForHumans() }}
-                                by {{ $post->user->name }}</p>
+                                by </p>
                         </div>
                     </a>
                 </div>

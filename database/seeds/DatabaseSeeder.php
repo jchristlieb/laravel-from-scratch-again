@@ -11,8 +11,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        factory(\App\Category::class, 4)->create();
-        $this->command->info('4 categories are created');
+        factory(\App\User::class, 8)->create();
+        $this->command->info('5 User are created');
+
+        factory(\App\Post::class, 24)->create();
+        $this->command->info('24 posts are created');
 
     }
 }
