@@ -23,3 +23,7 @@ Route::post('/register', 'RegisterController@store')->name('register.store');
 Route::get('/logout', 'SessionController@destroy')->name('session.destroy');
 Route::get('login', 'SessionController@create')->name('session.create');
 Route::post('login', 'SessionController@store')->name('session.store');
+
+// Posts
+Route::get('/post', 'PostController@create')->name('post.create');
+Route::post('/post', 'PostController@store')->name('post.store');
