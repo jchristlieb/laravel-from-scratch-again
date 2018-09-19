@@ -15,7 +15,7 @@ class PostController extends Controller
     public function index()
     {
         // retrieve all posts
-        $posts = Post::all();
+        $posts = Post::paginate(6);
 
         // redirect home
         return view('posts.index', compact('posts'));
@@ -24,7 +24,7 @@ class PostController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illumipnate\Http\Response
      */
     public function create()
     {

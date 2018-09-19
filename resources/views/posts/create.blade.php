@@ -10,7 +10,7 @@
 @section('main')
 
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-12">
 
             @include('layouts.errors')
 

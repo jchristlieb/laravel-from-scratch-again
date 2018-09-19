@@ -15,7 +15,7 @@
             <div class="col-md-6">
                 <div class="card mb-4">
                     <a href="posts/{{ $post->id }}">
-                        <div class="card-header">
+                        <div class="card-header small">
                             Category
                         </div>
                         <div class="card-body">
@@ -23,13 +23,20 @@
                             <p>{{ str_limit($post->body, 30, '...') }}</p>
                         </div>
                         <div class="card-footer">
-                            <p class="text-muted">Written 10 days ago by Author</p>
+                            <p class="text-muted small">Written {{ $post->created_at->diffForHumans() }}
+                                by {{ $post->user->name }}</p>
                         </div>
                     </a>
                 </div>
             </div>
 
         @endforeach
+
+        <div class="col-12">
+            {{ $posts->links() }}
+        </div>
+
+
     </div>
 
 

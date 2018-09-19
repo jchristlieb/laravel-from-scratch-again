@@ -4,6 +4,7 @@
     @slot('title')
         {{ $post->title }}
         @endslot
+    Written {{ $post->created_at->DiffForHumans() }} by {{ $post->user->name }}
     @endcomponent
 
 @section('main')
