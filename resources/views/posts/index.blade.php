@@ -16,7 +16,11 @@
                 <div class="card mb-4">
                     <a href="posts/{{ $post->id }}">
                         <div class="card-header small">
-                            Category
+                            @if(count($post->categories))
+                                @foreach($post->categories as $category)
+                                    {{ $category->name }}
+                                @endforeach
+                            @endif
                         </div>
                         <div class="card-body">
                             <h5>{{ $post->title }}</h5>
@@ -24,7 +28,7 @@
                         </div>
                         <div class="card-footer">
                             <p class="text-muted small">Written {{ $post->created_at->diffForHumans() }}
-                                by </p>
+                                by {{ $post->user->name }}</p>
                         </div>
                     </a>
                 </div>

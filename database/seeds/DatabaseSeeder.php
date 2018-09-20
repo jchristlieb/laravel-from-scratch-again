@@ -20,17 +20,16 @@ class DatabaseSeeder extends Seeder
         factory(\App\Category::class, 3)->create();
         $this->command->info('3 categories created');
 
-//        // add a random category to a post
-//        foreach (\App\Post::all() as $post){
-//          $category = \App\Category::inRandomOrder()->first();
-//          $post->category()->associate($category->id);
-//        }
-//        $this->command->info('Random category attached to each post');
-
-        foreach (\App\Post::all() as $post){
-            $post->category()->associate(\App\Category::inRandomOrder()->first());
+        // add categories to posts
+        foreach (\App\Post::all() as $post) {
+            foreach (\App\Category::all() as $category) {
+                // 25% probability that a category is attached to a post
+                if (rand(1,100) > 75) {
+                    $post->categories()->attach($category->id);
+                }
+            }
         }
-        $this->command->info('Random category attached to each post');
+        $this->command->info('categories attached to posts');
 
     }
 }

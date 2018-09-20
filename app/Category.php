@@ -6,9 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
-    // a category has many posts
+    // any category has many posts
     public function posts()
     {
-        return $this->hasMany(Post::class);
+        return $this->belongsToMany(Post::class);
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'name';
     }
 }
